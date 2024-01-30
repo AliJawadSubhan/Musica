@@ -12,6 +12,66 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Colors.transparent,
+      extendBody: true,
+      bottomNavigationBar: Container(
+        height: context.screenHeight * 0.063,
+        width: context.screenWidth,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [
+              Colors.black, // Black color at the bottom
+              Colors.transparent, // Transparent color at the top
+            ],
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Flexible(
+              child: Column(
+                children: [
+                  const Icon(
+                    EvaIcons.home,
+                    size: 31,
+                    color: Colors.white,
+                  ),
+                  Spaces.extrasmall,
+                  customTextWidget(text: "Home", color: Colors.white)
+                ],
+              ),
+            ),
+            Flexible(
+              child: Column(
+                children: [
+                  const Icon(
+                    EvaIcons.search,
+                    size: 31,
+                    color: Colors.white,
+                  ),
+                  Spaces.extrasmall,
+                  customTextWidget(text: "Search", color: Colors.white)
+                ],
+              ),
+            ),
+            Flexible(
+              child: Column(
+                children: [
+                  const Icon(
+                    EvaIcons.music_outline,
+                    size: 31,
+                    color: Colors.white,
+                  ),
+                  Spaces.extrasmall,
+                  customTextWidget(text: "Music", color: Colors.white)
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(100),
         child: Row(
@@ -66,7 +126,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
           child: Column(
